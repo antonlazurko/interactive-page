@@ -9,6 +9,7 @@
 }
 .interactive-image{
     max-width: 100%;
+    max-height: 90vh;
 }
 #submit-btn {
     margin-top: 20px;
@@ -25,8 +26,8 @@
     cursor: pointer;
 }
 .item_1{
-    top: 90%;
-    left: 20%;
+    top: 91%;
+    left: 12%;
     transform: rotate(50deg);
 }
 .item_2{
@@ -34,24 +35,24 @@
     left: 25%;
 }
 .item_3{
-    top: 30%;
-    left: 30%;
+    top: 57%;
+    left: 28%;
 }
 .item_4{
-    top: 35%;
-    left: 35%;
+    top: 39%;
+    left: 32%;
 }
 .item_5{
     top: 40%;
     left: 40%;
 }
 .item_6{
-    top: 45%;
-    left: 45%;
+    top: 48%;
+    left: 41%;
 }
 .item_7{
-    top: 53%;
-    left: 50%;
+    top: 48%;
+    left: 51%;
 }
 .item_8{
     top: 48%;
@@ -59,8 +60,8 @@
     transform: rotate(-50deg);
 }
 .item_9{
-    top: 60%;
-    left: 60%;
+    top: 39%;
+    left: 32%;
 }
 .item_10{
     top: 10%;
