@@ -1,24 +1,25 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const clickedArray = [];
-    const list = document.querySelector('#list');
-    const result = document.querySelector('#result');
-    list.addEventListener('click', e => onClickImg(e));
+const clickedArray = [];
+const list = document.querySelector('#list');
+const interactiveImage = document.querySelector('.interactive-image');
+const result = document.querySelector('#result');
+const submitBtn = document.querySelector('#submitBtn');
 
-    const submitBtn = document.querySelector('#submitBtn');
-    submitBtn.addEventListener('click', e => onSubmit(e));
-    function onClickImg(e) {
-        result.innerText = ''
-        if (e?.target?.nodeName === 'IMG' && e.target.id) {
-            if (!clickedArray.includes(e.target.id)) {
-                clickedArray.push(e.target.id)
-                e.target.style.display = 'none'
-            }
+interactiveImage.addEventListener('load', () => {
+    document.querySelectorAll('li').forEach(el => el.style.opacity = 1)
+})
+list.addEventListener('click', e => onClickImg(e));
+submitBtn.addEventListener('click', e => onSubmit(e));
+function onClickImg(e) {
+    result.innerText = ''
+    if (e?.target?.nodeName === 'IMG' && e.target.id) {
+        if (!clickedArray.includes(e.target.id)) {
+            clickedArray.push(e.target.id)
+            e.target.parentNode.style.opacity = 0
         }
     }
-
-    function onSubmit() {
-        result.innerText = `Total Strikes: ${clickedArray.length}`;
-        clickedArray.length = 0;
-        document.querySelectorAll('img').forEach(el => el.style.display = 'block')
-    }
-});
+}
+function onSubmit() {
+    result.innerText = `Total Strikes: ${clickedArray.length}`;
+    clickedArray.length = 0;
+    document.querySelectorAll('img').forEach(el => el.parentNode.style.opacity = 1)
+}
