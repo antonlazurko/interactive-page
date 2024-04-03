@@ -25,15 +25,39 @@
         </div>
         <h1 id="result"></h1>
         <form id="form">
-            <input type="text" name="name" placeholder="Full name" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="number" name="phone" placeholder="Phone number" required>
-            <input type="text" name="city" placeholder="City">
-            <input type="text" name="linkedIn" placeholder="LinkedIn profile">
-            <input type="text" name="technologies" placeholder="Technologies you work with" required></>
-            <input type="checkbox" name="personalDataAgreement" required>
-            <input type="checkbox" name="dataBaseAgreement">
-            <input type="submit" value="Submit">
+            <label for="name">Full name <span class="required">*</span>:
+                <input type="text" name="name" required>
+            </label>
+            <label for="email">Email <span class="required">*</span>:
+                <input type="email" name="email" required>
+            </label>
+            <label for="number">Phone number <span class="required">*</span>:
+                <input type="number" name="phone"required>
+            </label>
+            <label for="city">
+                City:
+                <input type="text" name="city">
+            </label>
+            <label for="linkedIn">LinkedIn
+                <input type="text" name="linkedIn">
+            </label>
+            <label for="technologies">Technologies you work with <span class="required">*</span>:</label>
+            <textarea type="text" name="technologies" required></textarea>
+            <div>
+                <div>
+                    <label for="personalDataAgreement">
+                        <input type="checkbox" name="personalDataAgreement" required>
+                        I consent that my personal data will be processed by Ciklum Group for purposes of registering me for the event <span class="required">*</span>:
+                    </label>
+                </div>
+                <div>
+                    <label for="dataBaseAgreement">
+                        <input type="checkbox" name="dataBaseAgreement" requireds>
+                        I agree to be added to Ciklum's recruitment database and be contacted about relevant job offers <span class="required">*</span>:
+                    </label>
+                </div>
+            </div>
+            <input type="submit" value="Get Present">
         </form>
     </div>
     <script src="./index.js"></script>
