@@ -3,8 +3,10 @@ const clickedArray = [];
 const list = document.querySelector('#list');
 const interactiveImage = document.querySelector('.interactive-image');
 const result = document.querySelector('#result');
+const loader = document.querySelector('#loader');
+const form = document.querySelector('#form');
 
-document.getElementById("form").addEventListener("submit", onSubmit);
+form.addEventListener("submit", onSubmit);
 
 
 interactiveImage.addEventListener('load', () => {
@@ -16,6 +18,9 @@ list.addEventListener('click', e => onClickImg(e));
 function handleIconVisible(icon) {icon.style.opacity = 1}
 
 function sendDataToGoogleSheet() {
+    form.style.visibility = 'hidden';
+    loader.style.visibility = 'initial'
+
     fetch(SHEET_URL, {
         method: 'POST',
         body: new FormData(document.getElementById('form')),
@@ -26,6 +31,8 @@ function sendDataToGoogleSheet() {
         result.innerText = `Total Strikes: ${clickedArray.length}`;
         clickedArray.length = 0;
         document.querySelectorAll('li').forEach(handleIconVisible);
+        form.style.visibility = 'inherit';
+        loader.style.visibility = 'hidden';
         } else {
         console.error('Error sending data to Google Sheet');
         }
