@@ -1,4 +1,4 @@
-const SHEET_URL = 'https://script.google.com/macros/s/AKfycby4ip8jyuozVw6u6xEQk98G3Z205LC2M-9DqYBrDc7eevVEqKYk6A7YTVLo904EgzRSFw/exec';
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzqlgBuV4Az8Z5rMq6p2oI-3587Q5HUJr5kBbKF65E870Sbj7oyq7FhAMvqsai8Xv0F2w/exec';
 const clickedArray = [];
 const list = document.querySelector('#list');
 const interactiveImage = document.querySelector('.interactive-image');
@@ -21,9 +21,12 @@ function sendDataToGoogleSheet() {
     form.style.visibility = 'hidden';
     loader.style.visibility = 'initial'
 
+    const formData = new FormData(form)
+    formData.append('result', clickedArray.length)
+
     fetch(SHEET_URL, {
         method: 'POST',
-        body: new FormData(document.getElementById('form')),
+        body: formData,
     })
     .then(response => {
         if (response.ok) {
